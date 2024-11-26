@@ -6,7 +6,7 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
 import axios from 'axios'
 import { useState, useEffect } from 'react'
-import { error } from 'console'
+import Link from 'next/link'
 
 interface IFormInputs {
   username: string
@@ -20,7 +20,7 @@ export default function Home() {
   const [scores, setScores] = useState<{ username: string; score: number }[]>(
     []
   )
-  const [errorMessage, setErrorMessage] = useState<string | null>(null) // Estado para erro
+  const [errorMessage, setErrorMessage] = useState<string | null>(null)
 
   const schema = z.object({
     username: z
@@ -115,7 +115,7 @@ export default function Home() {
           </div>
           <div className="flex space-x-4">
             <button className="rounded-md border-2 border-[#FFC107] px-5 py-2 font-semibold text-white shadow transition duration-200 hover:bg-[#FFC107] hover:text-[#2E3A59] hover:ring-2 hover:ring-[#FFC107]">
-              Download
+              <Link href="../../public/files/KingAdventure.zip">Download</Link>
             </button>
 
             <Dialog.Root>
