@@ -22,6 +22,7 @@ export default function Home() {
   )
   const [errorMessage, setErrorMessage] = useState<string | null>(null)
 
+  // Validação do formulario
   const schema = z.object({
     username: z
       .string()
@@ -115,7 +116,9 @@ export default function Home() {
           </div>
           <div className="flex space-x-4">
             <button className="rounded-md border-2 border-[#FFC107] px-5 py-2 font-semibold text-white shadow transition duration-200 hover:bg-[#FFC107] hover:text-[#2E3A59] hover:ring-2 hover:ring-[#FFC107]">
-              <Link href="../../public/files/KingAdventure.zip">Download</Link>
+              <Link download href="/files/KingAdventure.zip">
+                Download
+              </Link>
             </button>
 
             <Dialog.Root>
