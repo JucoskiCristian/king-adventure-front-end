@@ -237,16 +237,24 @@ export default function Home() {
               </tr>
             </thead>
             <tbody>
-              {scores.map((score, index) => (
-                <tr key={index} className="even:bg-[#2C1F3C]">
-                  <td className="border-b border-[#2E3A59] p-4 text-xl capitalize text-[#F0E5D8]">
-                    {score.username}
-                  </td>
+              {scores === null ? (
+                <tr>
                   <td className="border-b border-[#2E3A59] p-4 text-xl text-[#F0E5D8]">
-                    {score.score}
+                    Nenhum score encontrado
                   </td>
                 </tr>
-              ))}
+              ) : (
+                scores.map((score, index) => (
+                  <tr key={index}>
+                    <td className="border-b border-[#2E3A59] p-4 text-xl text-[#F0E5D8]">
+                      {score.username}
+                    </td>
+                    <td className="border-b border-[#2E3A59] p-4 text-xl text-[#F0E5D8]">
+                      {score.score}
+                    </td>
+                  </tr>
+                ))
+              )}
             </tbody>
           </table>
         </div>
